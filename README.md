@@ -82,10 +82,10 @@ In the 2014-2017 period, Superstore earned $2.29 million revenue but the profit 
 ![image.png](e1455a81-f324-4bfb-a160-d2a4d53e835e.png)
 
 **Top Performing States in Sales**
-California, New York, and Texas consistently led in sales across all years. Washington and Pennsylvania also ranked high.
+- California, New York, and Texas consistently led in sales across all years. Washington and Pennsylvania also ranked high.
 
 **Bottom Performing States in Profit**
-Even though Texas ranked high in Sales but having a significant negative profit. Similarly for Illinois and Pennsylvania.
+- Even though Texas ranked high in Sales but having a significant negative profit. Similarly for Illinois and Pennsylvania.
 
 **Category in States**
 - All categories had losses in Pennsylvania and Ohio.
