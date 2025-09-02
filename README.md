@@ -12,7 +12,8 @@ https://www.kaggle.com/datasets/vivek468/superstore-dataset-final/data
 - Creat a scheme of 3 tables Orders, Products, and Customers.
 - Write 15+ queries to analyze the dataset.
   
-## Dashboards
+## Dashboards  
+https://public.tableau.com/app/profile/nhi.t.tran/vizzes
 ![image.png](febed67c-1922-4a26-a172-c8a866cc0f69.png)
 
 ![image.png](14c34379-b6e6-4966-b860-c6ed77124891.png)
