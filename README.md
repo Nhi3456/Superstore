@@ -1,7 +1,17 @@
 # Superstore Analysis and Data Visualization
 
-## Dataset description: https://www.kaggle.com/datasets/vivek468/superstore-dataset-final/data
+## Dataset description: 
+https://www.kaggle.com/datasets/vivek468/superstore-dataset-final/data
 
+## Data Preprocessing
+- There are no missing values after checking.
+- There are no data duplications after checking.
+- Convert date time.
+
+## Schema in Postgresql
+- Creat a scheme of 3 tables Orders, Products, and Customers.
+- Write 15+ queries to analyze the dataset.
+  
 ## Dashboards
 ![image.png](febed67c-1922-4a26-a172-c8a866cc0f69.png)
 
