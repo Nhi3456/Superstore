@@ -1,5 +1,5 @@
 
---1. Total Revenue
+--1. Total Revenue--
 SELECT ROUND(SUM(sales), 2) AS total_revenue
 FROM orders;
 | total\_revenue |
