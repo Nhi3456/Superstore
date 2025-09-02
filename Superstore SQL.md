@@ -1,4 +1,4 @@
-```python
+
 --1. Total Revenue
 SELECT ROUND(SUM(sales), 2) AS total_revenue
 FROM orders;
@@ -27,7 +27,7 @@ FROM orders;
 | :--- |
 | 458.28 |
 
-```
+
 
 --5. Which region is generating the highest revenue?
 SELECT region, ROUND(SUM(sales), 3) AS total_sales
@@ -43,7 +43,7 @@ ORDER BY total_sales DESC;
 | South | 391007.825 |
 
 
-```python
+
 --6. Which states are generating the highest revenue?
 SELECT state, ROUND(SUM(sales), 3) AS total_sales
 FROM orders
@@ -76,10 +76,10 @@ LIMIT 20;
 | Kentucky | 29053.785 |
 | Massachusetts | 28411.345 |
 
-```
 
 
-```python
+
+
 --7. Which cities are generating the highest revenue?
 SELECT city, state, ROUND(SUM(sales), 3) AS total_sales
 FROM orders
@@ -111,10 +111,10 @@ LIMIT 20;
 | Aurora | Illinois | 16600.19 |
 | Burlington | North Carolina | 16380.937 |
 | Milwaukee | Wisconsin | 15873.428 |
-```
 
 
-```python
+
+
 --8. Which product category is both the best-selling and the most profitable?
 SELECT products.category, ROUND(SUM(profit), 3) AS total_profit, SUM(qty) AS total_quantity
 FROM orders
@@ -129,10 +129,10 @@ ORDER BY total_profit DESC, total_quantity DESC;
 | Office Supplies | 122247.404 | 22891 |
 | Furniture | 18380.281 | 8023 |
 
-```
 
 
-```python
+
+
 --9. Top 10 Customers by Revenue
 SELECT c.customer_name, ROUND(SUM(o.sales), 2) AS total_spent
 FROM orders o
@@ -154,10 +154,10 @@ LIMIT 10;
 | Sanjit Engle | 12209.44 |
 | Christopher Conant | 12129.07 |
 
-```
 
 
-```python
+
+
 --10. Sales Trend (Monthly)
 SELECT DATE_TRUNC('month', order_date) AS month,
        ROUND(SUM(sales), 2) AS total_sales
@@ -215,10 +215,10 @@ ORDER BY month;
 | 2017-11-01 00:00:00.000000 +00:00 | 117903.45 |
 | 2017-12-01 00:00:00.000000 +00:00 | 83726.98 |
 
-```
 
 
-```python
+
+
 --11. Profit Trend (Monthly)
 SELECT DATE_TRUNC('month', order_date) AS month,
        ROUND(SUM(profit), 2) AS total_profit
@@ -276,10 +276,10 @@ ORDER BY month;
 | 2017-11-01 00:00:00.000000 +00:00 | 9532.23 |
 | 2017-12-01 00:00:00.000000 +00:00 | 8469.28 |
 
-```
 
 
-```python
+
+
 --12. Orders Trend (Monthly)
 SELECT DATE_TRUNC('month', order_date) AS month,
        COUNT(DISTINCT order_id) AS total_orders
@@ -337,11 +337,11 @@ ORDER BY month;
 | 2017-11-01 00:00:00.000000 +00:00 | 261 |
 | 2017-12-01 00:00:00.000000 +00:00 | 224 |
 
-```
 
 
-```python
---13. Category Sales by Month (for stacked charts)
+
+
+--13. Category Sales by Month
 SELECT DATE_TRUNC('month', o.order_date) AS month,
        p.category,
        ROUND(SUM(o.sales), 2) AS total_sales
@@ -498,11 +498,11 @@ ORDER BY month, p.category;
 | 2017-12-01 00:00:00.000000 +00:00 | Office Supplies | 30436.94 |
 | 2017-12-01 00:00:00.000000 +00:00 | Technology | 21882.57 |
 
-```
 
 
-```python
---13. Region Sales by Month (for line/stacked charts)
+
+
+--14. Region Sales by Month
 SELECT DATE_TRUNC('month', order_date) AS month,
        region,
        ROUND(SUM(sales), 2) AS total_sales
@@ -704,10 +704,10 @@ ORDER BY month, region;
 | 2017-12-01 00:00:00.000000 +00:00 | South | 15209.74 |
 | 2017-12-01 00:00:00.000000 +00:00 | West | 29549.76 |
 
-```
 
 
-```python
+
+--15. Top 20 products as best-selling
 SELECT orders.product_id, products.product_name, SUM(qty) AS total_quantity
 FROM orders
 INNER JOIN products
@@ -740,7 +740,7 @@ LIMIT 20;
 | FUR-CH-10000454 | Hon Deluxe Fabric Upholstered Stacking Chairs, Rounded Back | 51 |
 
 
-
+--16. Top 20 most profitable products
 SELECT orders.product_id, products.product_name, ROUND(SUM(profit), 3) AS total_profit
 FROM orders
 INNER JOIN products
@@ -770,4 +770,4 @@ LIMIT 20;
 | OFF-BI-10001359 | GBC DocuBind TL300 Electric Binding System | 2233.505 |
 | TEC-AC-10001838 | Razer Tiamat Over Ear 7.1 Surround Sound PC Gaming Headset | 2155.892 |
 | TEC-CO-10001766 | Canon PC940 Copier | 2092.454 |
-```
+
