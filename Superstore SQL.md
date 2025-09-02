@@ -6,21 +6,21 @@ FROM orders;
 | :--- |
 | 2295509.57 |
 
---2. Total Revenue
-SELECT ROUND(SUM(sales), 2) AS total_revenue
+--2. Total orders  
+SELECT COUNT(DISTINCT order_id) AS total_orders
 FROM orders;
 | total\_orders |
 | :--- |
 | 5009 |
 
---3. Total Units Sold
+--3. Total Units Sold  
 SELECT SUM(qty) AS total_units
 FROM orders;
 | total\_units |
 | :--- |
 | 37840 |
 
---4. Average Order Value (AOV)
+--4. Average Order Value (AOV)  
 SELECT ROUND(SUM(sales) / COUNT(DISTINCT order_id), 2) AS avg_order_value
 FROM orders;
 | avg\_order\_value |
@@ -29,7 +29,7 @@ FROM orders;
 
 
 
---5. Which region is generating the highest revenue?
+--5. Which region is generating the highest revenue?  
 SELECT region, ROUND(SUM(sales), 3) AS total_sales
 FROM orders
 GROUP BY region
@@ -44,7 +44,7 @@ ORDER BY total_sales DESC;
 
 
 
---6. Which states are generating the highest revenue?
+--6. Which states are generating the highest revenue?  
 SELECT state, ROUND(SUM(sales), 3) AS total_sales
 FROM orders
 INNER JOIN customers
@@ -80,7 +80,7 @@ LIMIT 20;
 
 
 
---7. Which cities are generating the highest revenue?
+--7. Which cities are generating the highest revenue?  
 SELECT city, state, ROUND(SUM(sales), 3) AS total_sales
 FROM orders
 INNER JOIN customers
@@ -115,7 +115,7 @@ LIMIT 20;
 
 
 
---8. Which product category is both the best-selling and the most profitable?
+--8. Which product category is both the best-selling and the most profitable?  
 SELECT products.category, ROUND(SUM(profit), 3) AS total_profit, SUM(qty) AS total_quantity
 FROM orders
 INNER JOIN products
@@ -133,7 +133,7 @@ ORDER BY total_profit DESC, total_quantity DESC;
 
 
 
---9. Top 10 Customers by Revenue
+--9. Top 10 Customers by Revenue  
 SELECT c.customer_name, ROUND(SUM(o.sales), 2) AS total_spent
 FROM orders o
 JOIN customers c
@@ -158,7 +158,7 @@ LIMIT 10;
 
 
 
---10. Sales Trend (Monthly)
+--10. Sales Trend (Monthly)  
 SELECT DATE_TRUNC('month', order_date) AS month,
        ROUND(SUM(sales), 2) AS total_sales
 FROM orders
@@ -219,7 +219,7 @@ ORDER BY month;
 
 
 
---11. Profit Trend (Monthly)
+--11. Profit Trend (Monthly)  
 SELECT DATE_TRUNC('month', order_date) AS month,
        ROUND(SUM(profit), 2) AS total_profit
 FROM orders
@@ -280,7 +280,7 @@ ORDER BY month;
 
 
 
---12. Orders Trend (Monthly)
+--12. Orders Trend (Monthly)  
 SELECT DATE_TRUNC('month', order_date) AS month,
        COUNT(DISTINCT order_id) AS total_orders
 FROM orders
@@ -341,7 +341,7 @@ ORDER BY month;
 
 
 
---13. Category Sales by Month
+--13. Category Sales by Month  
 SELECT DATE_TRUNC('month', o.order_date) AS month,
        p.category,
        ROUND(SUM(o.sales), 2) AS total_sales
@@ -502,7 +502,7 @@ ORDER BY month, p.category;
 
 
 
---14. Region Sales by Month
+--14. Region Sales by Month  
 SELECT DATE_TRUNC('month', order_date) AS month,
        region,
        ROUND(SUM(sales), 2) AS total_sales
@@ -707,7 +707,7 @@ ORDER BY month, region;
 
 
 
---15. Top 20 products as best-selling
+--15. Top 20 products as best-selling  
 SELECT orders.product_id, products.product_name, SUM(qty) AS total_quantity
 FROM orders
 INNER JOIN products
@@ -740,7 +740,7 @@ LIMIT 20;
 | FUR-CH-10000454 | Hon Deluxe Fabric Upholstered Stacking Chairs, Rounded Back | 51 |
 
 
---16. Top 20 most profitable products
+--16. Top 20 most profitable products  
 SELECT orders.product_id, products.product_name, ROUND(SUM(profit), 3) AS total_profit
 FROM orders
 INNER JOIN products
