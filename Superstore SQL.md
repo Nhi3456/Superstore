@@ -772,6 +772,7 @@ LIMIT 20;
 | TEC-CO-10001766 | Canon PC940 Copier | 2092.454 |
 
 --17. Ranking top customers
+
 SELECT
     customer_name,
     SUM(sales) AS total_sales,
@@ -1580,6 +1581,7 @@ GROUP BY customer_name;
 
 
 --18. Total sales in months and sort by >50000
+
 WITH monthly_sales AS (
     SELECT
         DATE_TRUNC('month', order_date) AS month,
